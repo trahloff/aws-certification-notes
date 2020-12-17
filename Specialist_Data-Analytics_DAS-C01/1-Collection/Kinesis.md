@@ -53,6 +53,7 @@
   - SDK (Pull - GetRecords), Problem: More Consumers, less throughput per consumer
   - KCL
     - Checkpoints via DynamoDB (make sure to provision enough WCU/RCU, otherwise throttle)
+    - **THEREFORE NEEDS ACCESS TO DynamoDB** 
   - Connector Library
     - Old Stuff, must run on EC2
     - leverages KCL
@@ -130,6 +131,7 @@
   - GZIP, ZIP, SNAPPY S3
   - GZIP Redshift
 - auto scaling
+- supports KMS encryption of steams
 - only pay for data
 - Spark/KCL cannot read from KDF
 - sources
