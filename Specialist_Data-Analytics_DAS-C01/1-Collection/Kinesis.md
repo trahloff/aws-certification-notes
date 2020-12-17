@@ -105,6 +105,7 @@
 - Data Retention 
 	- default: 24h 
 	- max: 7 days
+- Per Shard: 1mb/s write + 2mb/s read + 1000 records per second
 
 
 
@@ -118,7 +119,7 @@
 
 ## Analytics
 
-
+- RANDOM_CUT_FORREST to detect anomalies 
 
 
 
@@ -158,5 +159,10 @@
 
 
 
+## Stuff I got wrong in practice exams
 
-
+- Resolve slow ingestion
+  - random partition keys => distribute hash key evenly
+  - `UpdateShardCount` API (Combination of PlitShard + MergeShards)
+- Mitigate ReadProvisionedThroughputExceede
+  - Exponential Backoff
