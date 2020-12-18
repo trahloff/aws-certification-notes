@@ -20,6 +20,10 @@ https://jayendrapatil.com/aws-glue/
 
 - You can run existing ETL jobs w/ Glue
 
+- You can build custom classifiers for Glue Crawlers
+
+- You can use Spark extension functions
+
   
 
   

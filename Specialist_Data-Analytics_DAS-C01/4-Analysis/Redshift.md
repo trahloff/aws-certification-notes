@@ -3,6 +3,8 @@
 https://tutorialsdojo.com/amazon-redshift/
 https://jayendrapatil.com/aws-redshift/
 
+https://dev.to/ronsoak/the-r-a-g-redshift-analyst-guide-sorting-zone-maps-51cf
+
 ## Architecture
 
 - Leader Node (JDBC/ODBC Interface)
@@ -20,6 +22,9 @@ https://jayendrapatil.com/aws-redshift/
 - EVEN - round robin (no JOINs, clustering not important)
 - KEY - basically like DynamoDB partitioning (JOINs based on key, e.g., weather station with many sensors, weather station ID is key, analysis that joins all sensor data)
 - ALL - entire table is copied to node (only for slow moving tables)
+- Optimal Performance:
+  - Split your load data files so that the files are about **equal size**, between **1 MB and 1 GB after compression**. For **optimum parallelism**, the ideal size is **between 1 MB and 125 MB after compression**. 
+  - The **number of files** should be a **multiple of the number of slices** in your cluster.
 
 
 

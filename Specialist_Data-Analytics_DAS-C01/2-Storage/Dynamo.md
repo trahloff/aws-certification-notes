@@ -15,6 +15,7 @@
 ### Global Secondary Index (GSI)
 
 - Used to speed up queries on non-key attributes
+- Primary Key Attributes does not require distinct values
 - Creates new table with projected attributes
   - KEYS_ONLY
   - INCLUDE

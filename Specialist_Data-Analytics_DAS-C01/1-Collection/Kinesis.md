@@ -20,7 +20,7 @@
 # Producers
 - Types
 	- SDK
-	  - "PutRecord(s)" &rarr; always SDK. PutRecords uses Batching (less HTTP requests)
+	  - "PutRecord(s)" &rarr; always SDK. PutRecords uses Batching (less HTTP requests). If one record fails, only this one will be in retry, batch succeeds
 	  - Use-cases: Low Throughput, Higher Latency, Simple Setup, AWS Lambda
 	- KPL (more advanced)
 	  - c++/java lib
@@ -49,6 +49,7 @@
 
 # Consumers
 
+- "Checkpointing" exists (Uses Dynamo)
 - Classic
   - SDK (Pull - GetRecords), Problem: More Consumers, less throughput per consumer
   - KCL

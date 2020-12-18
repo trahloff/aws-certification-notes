@@ -22,3 +22,13 @@
   - IAM Role Issue
   - Mismatched name for output stream
   - Destination service unavailable (down)
+
+
+
+
+
+
+
+## Misc
+
+- Up to **1mb**
