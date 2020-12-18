@@ -1,5 +1,8 @@
 # Redshift
 
+https://tutorialsdojo.com/amazon-redshift/
+https://jayendrapatil.com/aws-redshift/
+
 ## Architecture
 
 - Leader Node (JDBC/ODBC Interface)

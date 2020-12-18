@@ -1,5 +1,8 @@
 # Elastic Search
 
+https://tutorialsdojo.com/amazon-elasticsearch-amazon-es/
+https://jayendrapatil.com/aws-elasticsearch/
+
 ## Config
 
 - Master Nodes
@@ -13,5 +16,6 @@
 
 
 
-## Inout
+## Trouble Shooting
 
+- Out of mem: too many too small shards

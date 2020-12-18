@@ -1,5 +1,8 @@
 # EMR
 
+https://tutorialsdojo.com/amazon-emr/
+https://jayendrapatil.com/aws-emr-certification/
+
 ## Misc
 
 - **S3DistCP** - Copy large amounts of data S3 <=> HDFS (x-acc, x-buckets)

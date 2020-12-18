@@ -1,5 +1,8 @@
 # Glue
 
+https://tutorialsdojo.com/aws-glue/
+https://jayendrapatil.com/aws-glue/
+
 ## Misc
 
 - Glue crawlers can crawl data in different AWS region or another account
