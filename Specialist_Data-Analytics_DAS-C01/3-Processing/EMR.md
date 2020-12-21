@@ -17,4 +17,5 @@ https://jayendrapatil.com/aws-emr-certification/
   - **Core** both processing & storage
   - **Task** only processing
 - EMRFS allows you to define **retry rules** for **processing inconsistencies** 
+- Instance fleet w/ spot blocks &rarr; uninterrupted spot instances 1-6h
 
