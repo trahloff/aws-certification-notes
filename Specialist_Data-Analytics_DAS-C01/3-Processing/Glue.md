@@ -24,6 +24,8 @@ https://jayendrapatil.com/aws-glue/
 
 - You can use Spark extension functions
 
+- DataFrames load data into memory and can be accessed repeatedly (**Spark job repeatedly queries same data &rarr; DataFrames**)
+
   
 
   

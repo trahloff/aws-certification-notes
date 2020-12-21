@@ -6,6 +6,7 @@
   - Highly formatted reports
 - Connection to Redshift: Add Quicksight IP to Redshift SGs
 - You can use scheduled lambda instead of kinesis firehose to pipe data into ElasticSearch
+- S3 Data Sources are automatically imported into SPICE
 
 ## Security
 

@@ -12,7 +12,7 @@
 
 
 - Record
-  - Data Blob (up to 1mb)
+  - **Data Blob (up to 1mb)** (>1mb &rarr; MSK Kafka)
   - Record Key (like S3, sharding partitioning based on this one) -> highly distributed to avoid "hot key" problem
   - Sequence number - added by Kinesis after Ingestions, not added by producer
 
