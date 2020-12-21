@@ -61,7 +61,7 @@ https://dev.to/ronsoak/the-r-a-g-redshift-analyst-guide-sorting-zone-maps-51cf
 
 ## Import/Export
 
-- Enhanced VPC routing is a thing. No internet, direct COPY/UNLOAD commands (VPCe, NAT-Gs, IGWs, ...)
+- **Enhanced VPC routing is a thing**. No internet, direct COPY/UNLOAD commands (VPCe, NAT-Gs, IGWs, ...)
 
 ### Import
 
@@ -82,6 +82,9 @@ https://dev.to/ronsoak/the-r-a-g-redshift-analyst-guide-sorting-zone-maps-51cf
   - Because: otherwise metadata consumes too much space each COPY creates hidden metadata
 - Data Pipeline
 - Database Migration Service
+- Troubleshooting
+  - Import CSV, no error returned, no data is in RS
+    &rArr; RS doesn't recognize carriage returns as new lines, if IGNOREHEADERS is set, COPY will ignore first line
 
 ### Export
 
@@ -165,6 +168,12 @@ https://dev.to/ronsoak/the-r-a-g-redshift-analyst-guide-sorting-zone-maps-51cf
 - **DELETE ONLY** &rarr; reclaim space from deleted rows, do not sort
 - **SORT ONLY** &rarr; do not reclaim space from deleted rows, do sort
 - **REINDEX** &rarr; ONLY FOR INTERLEAVED re-analyze distributions of sort keys, performs full VACUUM afterwards
+- Troubleshooting: VACUUM takes very long
+  - High percentage of unsorted data
+  - infrequent use of VACUUM
+  - interleaved key
+  - many columns
+  - data not loaded in sort order
 
 
 
@@ -210,4 +219,5 @@ https://dev.to/ronsoak/the-r-a-g-redshift-analyst-guide-sorting-zone-maps-51cf
 - OLTP
 - Unstructured Data (but Spectrum)
 - BLOB DATA
+- `UNLOAD` does not export Redshift Spectrum
 

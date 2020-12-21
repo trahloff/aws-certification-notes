@@ -26,6 +26,8 @@ https://jayendrapatil.com/aws-glue/
 
 - DataFrames load data into memory and can be accessed repeatedly (**Spark job repeatedly queries same data &rarr; DataFrames**)
 
+- Lake Formation is a thing for central RBAC
+
   
 
   

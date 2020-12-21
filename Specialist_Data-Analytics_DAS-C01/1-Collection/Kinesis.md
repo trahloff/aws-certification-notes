@@ -2,12 +2,12 @@
 
 ## Exam Keys
 
-- "Async Data" &rArr; KPL Producer
+- **"Async Data" &rArr; KPL Producer**
 
 
 ## Streams
 
-- You can replay/reprocess data (not like SQS, in Kinesis data is only deleted after retention time, not after read) -> multiple apps can read the same stream
+- You can **replay**/reprocess data (not like SQS, in Kinesis data is **only deleted after retention time**, not after read) -> multiple apps can read the same stream
 - Append only stream -> once data is written to it, you cannot change it
 
 
@@ -28,12 +28,12 @@
 	  - Built-in retry mechanism (ProvisionedThroughputException)
 	  - Synchronous or Asynchronous API 
 	  - Submits Producer metrics to CloudWatch
-	  - Batching enabled by default
+	  - **Batching enabled by default**
 	    - Collect - Record & Write to multiple shards in same PutRecords API call
 	    - Aggregate - Store multiple records in one record -> increase payload size
-	    - RecordMaxBufferedTime = 100ms (waits this time window for records to batch)
-	  - Compression needs to be enabled by user
-	  - Can only be read by KCL or helper library
+	    - **RecordMaxBufferedTime** = **100ms** (waits this time window for records to batch)
+	  - **Compression** needs to be **implemented by user**
+	  - Can **only be read by KCL** or helper library
 	- Kinesis Agent (runs on Linux server)
 	  - java based
 	  - built on top of KPL
@@ -49,7 +49,7 @@
 
 # Consumers
 
-- "Checkpointing" exists (Uses Dynamo)
+- **"Checkpointing" exists (Uses Dynamo)**
 - Classic
   - SDK (Pull - GetRecords), Problem: More Consumers, less throughput per consumer
   - KCL
@@ -65,12 +65,12 @@
     - low number of applications 
     - can tolerate 200ms latency
     - min cost
-- Enhanced Fan Out
+- **Enhanced Fan Out**
   - KCL 2.0 + Lambda
-  - Uses push (consumer dont need to poll/pull)
+  - **Uses push (consumer don't need to poll/pull)**
   - uses http2
   - reduced latency (70ms)
-  - Each consumer get's 2mb/s of throughput
+  - **Each consumer get's 2mb/s of throughput**
   - default limit of 5 consumers with fan-out per shard
 
 
@@ -84,29 +84,30 @@
   - Group two shards with low traffic
   - Old shards are closed and will be deleted once data is expired
 - Limitations
-  - Resharding cannot be done in parallel
-  - -> Only one operation at a time and it takes a few seconds
-  - Example: 1000 Shards -> 2000 Shards = 8.3hours
+  - **Resharding cannot be done in parallel**
+  - &rarr; Only one operation at a time and it takes a few seconds
+  - Example: 1000 Shards -> 2000 Shards = 8.3 hours
 - Autoscaling
   - not native
   - lambda hacking
+- Records could be out of order after resharding when reading child shard before parent shard
 
 # Limits
 
-- Producers
-	- 1 MB/s or 1000messages/s write PER SHARD
+- **Producers**
+	- **1 MB/s or 1000messages/**s write PER SHARD
 	- Breach this limit: "ProvisionedThroughputException". Solution Approaches
 	  - Retries with Backoff
 	  - Increase shards (scaling)
 	  - Optimize partition key
-- Consumer Classic
-	- 2 MB/s read or 5 API-calls/s PER SHARD
-- Consumer Enhanced Fan-Out
-	- 2 MB/s read PER SHARD, PER ENHANCED CONSUMER
-	- No API Calls (push model)
-- Data Retention 
+- Consumer **Classic**
+	- **2 MB/s read or 5 API-calls/s PER SHARD**
+- Consumer **Enhanced Fan-Out**
+	- **2 MB/s read PER SHARD, PER ENHANCED CONSUMER**
+	- **No API Calls (push model)**
+- Data **Retention** 
 	- default: 24h 
-	- max: 7 days
+	- max: **7 days**
 - Per Shard: 1mb/s write + 2mb/s read + 1000 records per second
 
 
@@ -119,10 +120,6 @@
 - Client-side encr only manually
 - There are VPC endpoints for Kinesis
 
-## Analytics
-
-- RANDOM_CUT_FORREST to detect anomalies 
-
 
 
 ## Firehose
@@ -134,7 +131,7 @@
 - auto scaling
 - supports KMS encryption of steams
 - only pay for data
-- Spark/KCL cannot read from KDF
+- **Spark/KCL cannot read from KDF**
 - sources
   - kpl
   - kinesis agent
@@ -148,7 +145,7 @@
   - es
   - splunk
 - source records + Transformation/Delivery failures into different bucket
-- buffer
+- **buffer**
   - size (exp 32mb)
   - time (2min)
   - firehose can automatically increae buffer size

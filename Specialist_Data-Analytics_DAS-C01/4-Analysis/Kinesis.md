@@ -32,3 +32,4 @@
 ## Misc
 
 - Up to **1mb**
+- Random Cut Forrest against outliers
